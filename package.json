@@ -1,0 +1,16 @@
+{
+    "name": "discord-trade-bot",
+    "version": "1.0.0",
+    "description": "",
+    "main": "Main.js",
+    "scripts": {
+        "run": "node Main.js"
+    },
+    "keywords": [],
+    "author": "Xamez",
+    "license": "ISC",
+    "dependencies": {
+        "discord.js": "^13.3.1",
+        "request": "^2.88.2"
+    }
+}
