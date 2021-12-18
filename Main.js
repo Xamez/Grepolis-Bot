@@ -86,30 +86,29 @@ client.on('messageCreate', (message) => {
         message.channel.send("```" +
             "Ben voyons\n" +
             "Je suis vegan\n" +
-            ".vote\n" +
-            ".generation-Z\n" +
-            ".yt\n" +
-            ".twitter\n" +
-            ".cat\n" +
-            ".drole\n" +
-            ".gotilla\n" +
-            ".amouranth\n" +
-            ".pixel1v9\n" +
-            ".alexafo\n" +
-            ".robebou\n" +
-            ".nft\n" +
-            ".eolien\n" +
-            ".nucléaire\n" +
-            ".metaverse\n" +
-            ".tl-race\n" +
-            ".about\n" +
-            ".nmi (que pour le magnifique Maxence)\n" +
-            ".purge <nombre> (que pour le magnifique Maxence)```"
+            prefix + "vote\n" +
+            prefix + "generation-Z\n" +
+            prefix + "yt\n" +
+            prefix + "twitter\n" +
+            prefix + "cat\n" +
+            prefix + "drole\n" +
+            prefix + "gotilla\n" +
+            prefix + "amouranth\n" +
+            prefix + "pixel1v9\n" +
+            prefix + "alexafo\n" +
+            prefix + "robebou\n" +
+            prefix + "nft\n" +
+            prefix + "eolien\n" +
+            prefix + "nucléaire\n" +
+            prefix + "metaverse\n" +
+            prefix + "tl-race\n" +
+            prefix + "about\n" +
+            prefix + "nmi (que pour le magnifique Zemmourien)\n" +
+            prefix + "purge <nombre> (que pour le magnifique Zemmourien)```"
         );
     }
 });
 
-// get the link of a random picture of a cat
 function getCat() {
     return new Promise((resolve, reject) => {
         request('https://aws.random.cat/meow', (error, response, body) => {
@@ -122,9 +121,8 @@ function getCat() {
     });
 }
 
-selfToken = "OTIxNDkxMzQzODc0ODY3MjMw.YbzrsA.IiHlvS_U08DZGTdWxC8K8tT1Lbs";
-//client.login(process.env.selfToken).catch(() => {
-client.login(selfToken).catch(() => {
+client.login(process.env.selfToken).catch(() => {
+    //client.login(selfToken).catch(() => {
     console.error("Token invalid !");
     process.exit(-1)
 })
