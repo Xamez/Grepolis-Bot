@@ -38,13 +38,13 @@ client.on('messageCreate', (message) => {
         let member = message.mentions.members.first();
         if (member && member.id != "272720796391047168" && member.id != client.user.id) {
             MUTED_MEMBRES.push(member.id);
-            message.channel.createMessage(`Ce petit *** de ${member.mention} a été muté`);
+            message.channel.send(`Ce petit *** de ${member.mention} a été muté`);
         }
     } else if (content.includes(".unmute")) {
         let member = message.mentions.members.first();
         if (member) {
             MUTED_MEMBRES.splice(MUTED_MEMBRES.indexOf(member.id), 1);
-            message.channel.createMessage(`${member.mention} a été démuté`);
+            message.channel.send(`${member.mention} a été démuté`);
         }
     } else if (content.includes("ben voyons")) {
         message.channel.send("http://image.noelshack.com/fichiers/2020/42/1/1602493314-84177803-554601158473086-7625756352928808960-n.jpg");
