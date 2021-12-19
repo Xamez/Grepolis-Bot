@@ -44,7 +44,7 @@ client.on('messageCreate', (message) => {
         let member = message.mentions.members.first();
         if (member && MUTED_MEMBRES.includes(member.id)) {
             MUTED_MEMBRES.splice(MUTED_MEMBRES.indexOf(member.id), 1);
-            message.channel.send(`${member.mention} a été démuté`);
+            message.channel.send(`${member.toString()} a été démuté`);
         }
     } else if (content.includes("ben voyons")) {
         message.channel.send("http://image.noelshack.com/fichiers/2020/42/1/1602493314-84177803-554601158473086-7625756352928808960-n.jpg");
