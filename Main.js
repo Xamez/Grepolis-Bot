@@ -28,8 +28,7 @@ MUTED_MEMBRES = [];
 
 client.on('messageCreate', (message) => {
     if (MUTED_MEMBRES.includes(message.author.id)) {
-        message.author.send("Tu es muté, tu ne peux pas parler, CHEH").catch((e) => {});
-        message.delete();
+        message.author.send("Tu es muté, tu ne peux pas parler, CHEH").then(() => message.delete()).catch((e) => { message.channel.send("Tiens tiens tiens... je n'ai pas la permission de faire ça.... bizarre bizarre") });
         return;
     }
     if (message.author.bot) return;
