@@ -1,4 +1,4 @@
-const { Client } = require('discord.js');
+const { Client, GuildMember } = require('discord.js');
 const request = require('request');
 const client = new Client({ intents: ["GUILDS", "GUILD_MESSAGES", "DIRECT_MESSAGES", "GUILD_BANS", "GUILD_MEMBERS"] });
 
@@ -36,9 +36,10 @@ client.on('messageCreate', (message) => {
     const content = message.content.toLowerCase();
     if (content.includes(".mute")) {
         let member = message.mentions.members.first();
+        GuildMember
         if (member && member.id != "272720796391047168" && member.id != client.user.id) {
             MUTED_MEMBRES.push(member.id);
-            message.channel.send(`Ce petit *** de ${member.mention} a été muté`);
+            message.channel.send(`Ce petit *** de ${member.toString()} a été muté`);
         }
     } else if (content.includes(".unmute")) {
         let member = message.mentions.members.first();
