@@ -32,6 +32,7 @@ client.on('messageCreate', (message) => {
         return;
     }
     if (MUTED_MEMBRES.includes(message.author.id)) {
+        message.author.send("Tu es muté, tu ne peux pas parler, CHEH");
         message.delete();
         return;
     }
