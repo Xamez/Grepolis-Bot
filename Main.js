@@ -36,14 +36,13 @@ client.on('messageCreate', (message) => {
     const content = message.content.toLowerCase();
     if (content.includes(".mute")) {
         let member = message.mentions.members.first();
-        GuildMember
-        if (member && member.id != "272720796391047168" && member.id != client.user.id) {
+        if (member && !MUTED_MEMBRES.includes(member.id) && member.id != "272720796391047168" && member.id != client.user.id) {
             MUTED_MEMBRES.push(member.id);
             message.channel.send(`Ce petit *** de ${member.toString()} a été muté`);
         }
     } else if (content.includes(".unmute")) {
         let member = message.mentions.members.first();
-        if (member) {
+        if (member && MUTED_MEMBRES.includes(member.id)) {
             MUTED_MEMBRES.splice(MUTED_MEMBRES.indexOf(member.id), 1);
             message.channel.send(`${member.mention} a été démuté`);
         }
