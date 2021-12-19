@@ -24,14 +24,32 @@ const phrases = [
     "Zemmour: Yassine Bellatar n'est pas un humoriste, il fait rire personne.\nYassine: On avait dit pas les mamans\nZemmour: Ah mais votre mère elle a tout mon respect, justement elle rit à vos blagues ! ce qui prouve un sens du sacrifice extraordinaire !"
 ]
 
+MUTED_MEMBRES = [];
+
 client.on('messageCreate', (message) => {
     if (message.author.id === "558710888304082954") {
         message.delete();
         return;
     }
+    if (MUTED_MEMBRES.includes(message.author.id)) {
+        message.delete();
+        return;
+    }
     if (message.author.bot) return;
     const content = message.content.toLowerCase();
-    if (content.includes("ben voyons")) {
+    if (content.includes(".mute")) {
+        let member = message.mentions.members.first();
+        if (member) {
+            MUTED_MEMBRES.push(member.id);
+            message.channel.createMessage(`Ce petit *** de ${member.mention} a été muté`);
+        }
+    } else if (content.includes(".unmute")) {
+        let member = message.mentions.members.first();
+        if (member) {
+            MUTED_MEMBRES.splice(MUTED_MEMBRES.indexOf(member.id), 1);
+            message.channel.createMessage(`${member.mention} a été démuté`);
+        }
+    } else if (content.includes("ben voyons")) {
         message.channel.send("http://image.noelshack.com/fichiers/2020/42/1/1602493314-84177803-554601158473086-7625756352928808960-n.jpg");
     } else if (content.includes("vegan")) {
         message.guild.members.cache.get(message.author.id).kick("On aime pas les vegans ici.").then(() => {
