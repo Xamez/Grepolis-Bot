@@ -27,10 +27,6 @@ const phrases = [
 MUTED_MEMBRES = [];
 
 client.on('messageCreate', (message) => {
-    if (message.author.id === "558710888304082954") {
-        message.delete();
-        return;
-    }
     if (MUTED_MEMBRES.includes(message.author.id)) {
         message.author.send("Tu es muté, tu ne peux pas parler, CHEH");
         message.delete();
@@ -40,7 +36,7 @@ client.on('messageCreate', (message) => {
     const content = message.content.toLowerCase();
     if (content.includes(".mute")) {
         let member = message.mentions.members.first();
-        if (member) {
+        if (member && member.id != "272720796391047168" && member.id != client.user.id) {
             MUTED_MEMBRES.push(member.id);
             message.channel.createMessage(`Ce petit *** de ${member.mention} a été muté`);
         }
