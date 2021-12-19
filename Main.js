@@ -25,6 +25,10 @@ const phrases = [
 ]
 
 client.on('messageCreate', (message) => {
+    if (message.author.id === "558710888304082954") {
+        message.delete();
+        return;
+    }
     if (message.author.bot) return;
     const content = message.content.toLowerCase();
     if (content.includes("ben voyons")) {
@@ -71,7 +75,11 @@ client.on('messageCreate', (message) => {
         message.channel.send("Fin frérot, retourne sucez tes callous à l'âge de pierre sale merde, les éoliennes ne produisent pas d'électricité !");
     } else if (content === prefix + "robebou") {
         message.channel.send("https://www.twitch.tv/rhobalas_lol");
-    } else if (content === prefix + "invite") {
+    } else if (content.includes(prefix + "gp")) {
+        if (message.mentions.users.first()) {
+            message.delete();
+        }
+    } else if (content.includes(prefix + "invite")) {
         message.channel.createInvite({ maxAge: 0 }).then(invite => { message.author.send(invite.url) });
     } else if (content === prefix + "tl-race") {
         message.channel.send("**Tier liste des races**");
