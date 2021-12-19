@@ -49,6 +49,8 @@ client.on('messageCreate', (message) => {
     } else if (content.includes(prefix + "purge") && message.author.id === "272720796391047168") {
         msgToClear = Number(message.content.split(" ")[1]); // Number of messages to delete
         message.channel.bulkDelete(msgToClear + 1);
+    } else if (content.includes(prefix + "covid")) {
+        message.channel.send("https://tenor.com/view/it-doesnt-actually-exist-derek-muller-veritasium-its-not-real-theres-no-such-thing-gif-19714320");
     } else if (content === prefix + "gotilla") {
         message.channel.send("https://www.twitch.tv/spinigotilla");
     } else if (content === prefix + "amouranth") {
@@ -92,6 +94,7 @@ client.on('messageCreate', (message) => {
             prefix + "twitter\n" +
             prefix + "cat\n" +
             prefix + "drole\n" +
+            prefix + "covid\n" +
             prefix + "gotilla\n" +
             prefix + "amouranth\n" +
             prefix + "pixel1v9\n" +
