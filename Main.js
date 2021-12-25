@@ -55,6 +55,8 @@ client.on('messageCreate', (message) => {
         message.channel.send("https://www.zemmour2022.fr/jagis");
     } else if (content === prefix + "generation-z") {
         message.channel.send("https://www.generation-zemmour.fr/");
+    } else if (content === prefix + "papacito") {
+        message.channel.send("https://www.youtube.com/channel/UCBlAy4Lhzwnbl7LzFgTUhiw");
     } else if (content === prefix + "yt") {
         message.channel.send("https://www.youtube.com/channel/UCjTbZBXEw-gplUAnMXLYHpg")
     } else if (content === prefix + "twitter") {
@@ -112,6 +114,7 @@ client.on('messageCreate', (message) => {
             "Je suis vegan\n" +
             prefix + "vote\n" +
             prefix + "generation-Z\n" +
+            prefix + "papacito\n" +
             prefix + "yt\n" +
             prefix + "twitter\n" +
             prefix + "cat\n" +
