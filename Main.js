@@ -33,13 +33,13 @@ client.on('messageCreate', (message) => {
     }
     if (message.author.bot) return;
     const content = message.content.toLowerCase();
-    if (content.includes(".mute")) {
+    if (content.includes(".mute") && message.member.id === "298221448642953217" || message.member.id === "272720796391047168") {
         let member = message.mentions.members.first();
-        if (member && !MUTED_MEMBRES.includes(member.id) && member.id != "272720796391047168" && member.id != client.user.id) {
+        if (member && !MUTED_MEMBRES.includes(member.id) && member.id != "272720796391047168" && member.id != "298221448642953217" && member.id != client.user.id) {
             MUTED_MEMBRES.push(member.id);
             message.channel.send(`Ce petit *** de ${member.toString()} a été muté`);
         }
-    } else if (content.includes(".unmute")) {
+    } else if (content.includes(".unmute") && message.member.id === "298221448642953217" || message.member.id === "272720796391047168") {
         let member = message.mentions.members.first();
         if (member && MUTED_MEMBRES.includes(member.id)) {
             MUTED_MEMBRES.splice(MUTED_MEMBRES.indexOf(member.id), 1);
